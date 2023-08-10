@@ -129,6 +129,12 @@ nav {
 .home .temp-day img {
   width: 65px;
 }
+@media screen and (max-width:576px) {
+  .home .temp-day h2 {
+    font-size: 3.125rem !important;
+  }
+  
+}
 .temp-cards{
   background: var(--nav-color);
 }
@@ -151,6 +157,11 @@ nav {
   position: absolute;
   top: 4px;
   right: 5px;
+}
+@media screen and (max-width:576px) {
+  .home .image input[type="submit"] {
+    padding-inline: 1rem !important;
+  }
 }
 .card-one .day-one p{
   color: #aaa;
