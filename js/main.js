@@ -24,10 +24,20 @@ let date = document.getElementById('date-of-day');
 //Getting Date
 let currentDate = new Date();
 let currentDay =currentDate.getDay();
-let weekDay = ["Sunday","Monday","Tuesday","Wednesday","Thursday","Friday","Saturday"]
+let weekDay = ["Sunday", "Monday", "Tuesday", "Wednesday", "Thursday", "Friday", "Saturday"]
   day.innerHTML = weekDay[currentDay];
+
+if (weekDay[currentDay] === "Saturday") {
+  dayTwo.innerHTML = weekDay[0];
+} else {
   dayTwo.innerHTML = weekDay[currentDay + 1];
+}
+  
+if (weekDay[currentDay + 1] === "Saturday") {
+  dayThree.innerHTML = weekDay[0];
+} else {
   dayThree.innerHTML = weekDay[currentDay + 2];
+}
 let currentNumDay =currentDate.getDate();
 let currentMonth =currentDate.getMonth();
 let month = ["January","February","March","April","May","June","July","August","September","October","November","December"];
