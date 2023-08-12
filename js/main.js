@@ -23,24 +23,18 @@ let dayThree = document.getElementById('third-day');
 let date = document.getElementById('date-of-day');
 //Getting Date
 let currentDate = new Date();
-let currentDay =currentDate.getDay();
+let currentDay = currentDate.getDay();
 let weekDay = ["Sunday", "Monday", "Tuesday", "Wednesday", "Thursday", "Friday", "Saturday"]
-  day.innerHTML = weekDay[currentDay];
-
-if (weekDay[currentDay] === "Saturday") {
-  dayTwo.innerHTML = weekDay[0];
-} else {
-  dayTwo.innerHTML = weekDay[currentDay + 1];
+day.innerHTML = weekDay[currentDay];
+var secDay;
+if (currentDay === 6) {
+  secDay = 0;
 }
-  
-if (weekDay[currentDay + 1] === "Saturday") {
-  dayThree.innerHTML = weekDay[0];
-} else {
-  dayThree.innerHTML = weekDay[currentDay + 2];
-}
-let currentNumDay =currentDate.getDate();
-let currentMonth =currentDate.getMonth();
-let month = ["January","February","March","April","May","June","July","August","September","October","November","December"];
+dayTwo.innerHTML = weekDay[secDay];
+dayThree.innerHTML = weekDay[secDay + 1];
+let currentNumDay = currentDate.getDate();
+let currentMonth = currentDate.getMonth();
+let month = ["January", "February", "March", "April", "May", "June", "July", "August", "September", "October", "November", "December"];
 date.innerText = `${currentNumDay} ${month[currentMonth]} `;
 //End Getting Date
 
@@ -62,20 +56,20 @@ async function getData(ay) {
 }
 // getData()
 search.addEventListener('keyup', () => {
-  getData(search.value); 
+  getData(search.value);
 })
 
 
 // cards day one and day two
 
 function secDay(data) {
-  iconTwo.setAttribute("src", `${data.forecast.forecastday[1].day.condition.icon}`) 
+  iconTwo.setAttribute("src", `${data.forecast.forecastday[1].day.condition.icon}`)
   maxTwo.innerHTML = `${data.forecast.forecastday[1].day.maxtemp_c}&deg; C`;
   minTwo.innerHTML = `${data.forecast.forecastday[1].day.mintemp_c}&deg; `;
   conditionTwo.innerHTML = data.forecast.forecastday[1].day.condition.text;
 }
 function thirdDay(data) {
-  iconThree.setAttribute("src", `${data.forecast.forecastday[2].day.condition.icon}`) 
+  iconThree.setAttribute("src", `${data.forecast.forecastday[2].day.condition.icon}`)
   maxThree.innerHTML = `${data.forecast.forecastday[2].day.maxtemp_c}&deg; C`;
   minThree.innerHTML = `${data.forecast.forecastday[2].day.mintemp_c}&deg; `;
   conditionThree.innerHTML = data.forecast.forecastday[2].day.condition.text;
