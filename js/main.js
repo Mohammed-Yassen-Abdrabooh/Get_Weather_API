@@ -25,13 +25,25 @@ let date = document.getElementById('date-of-day');
 let currentDate = new Date();
 let currentDay = currentDate.getDay();
 let weekDay = ["Sunday", "Monday", "Tuesday", "Wednesday", "Thursday", "Friday", "Saturday"]
-day.innerHTML = weekDay[currentDay];
+
 var secDay;
-if (currentDay === 6) {
+if (weekDay[currentDay] == undefined) {
+  currentDay = 0;
+  secDay = currentDay + 1;
+  day.innerHTML = weekDay[currentDay];
+  dayTwo.innerHTML = weekDay[secDay];
+  dayThree.innerHTML = weekDay[secDay + 1];
+} else if (weekDay[secDay] == undefined) {
   secDay = 0;
+  dayTwo.innerHTML = weekDay[secDay];
+  dayThree.innerHTML = weekDay[secDay + 1];
+} else if (weekDay[secDay + 1] == undefined) {
+  dayThree.innerHTML = weekDay[0];
+} else {
 }
-dayTwo.innerHTML = weekDay[secDay];
-dayThree.innerHTML = weekDay[secDay + 1];
+day.innerHTML = weekDay[currentDay];
+dayTwo.innerHTML = weekDay[currentDay + 1];
+dayThree.innerHTML = weekDay[currentDay + 2];
 let currentNumDay = currentDate.getDate();
 let currentMonth = currentDate.getMonth();
 let month = ["January", "February", "March", "April", "May", "June", "July", "August", "September", "October", "November", "December"];
